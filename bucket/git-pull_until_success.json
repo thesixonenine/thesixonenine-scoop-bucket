@@ -1,0 +1,5 @@
+{
+    "version": "1.0", 
+    "url": "https://gist.githubusercontent.com/thesixonenine/410fd98d857b1b1aacc998df3645955f/raw/git-pull_until_success.ps1", 
+    "bin": "git-pull_until_success.ps1" 
+}
