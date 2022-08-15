@@ -1,10 +1,16 @@
 {
-    "version": "1.0.0", 
+    "version": "1.0.1", 
     "homepage": "https://gist.github.com/thesixonenine/",
-    "url": "https://github.com/thesixonenine/thesixonenine-scoop-bucket/releases/download/v1.0.0/git-scripts.zip", 
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/thesixonenine/thesixonenine-scoop-bucket/releases/download/v1.0.1/git-scripts.zip",
+            "hash": "bf6bcc118069da033bc8bcc45267b3137c6e5291b36f20a8349c34a831647458"
+        }
+    },
     "bin": [
         "git-pull_until_success.ps1",
         "git-clone_until_success.ps1",
-        "git-push_until_success.ps1"
+        "git-push_until_success.ps1",
+        "git-master-clear-history.ps1"
     ]
 }
