@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
+      GIT_NAME: Simple
+      GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - name: Checkout Source
       uses: actions/checkout@v2
@@ -25,6 +28,8 @@ jobs:
         rm -rf git-pull_until_success.ps1 
         rm -rf git-clone_until_success.ps1 
         rm -rf git-push_until_success.ps1
+        git config --global user.name $GIT_NAME
+        git config --global user.email $GIT_EMAIL
         git tag -a v1.0.0 -m "v1.0.0"
         git push origin v1.0.0
     - name: Upload release
