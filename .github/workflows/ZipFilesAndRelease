@@ -1,0 +1,26 @@
+name: zip files and upload release
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  zip-archive:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+    - name: download files
+      run: |
+        wget -O git-pull_until_success.ps1 https://gist.github.com/thesixonenine/410fd98d857b1b1aacc998df3645955f/git-pull_until_success.ps1
+        wget -O git-clone_until_success.ps1 https://gist.github.com/thesixonenine/326314e18a3a69116d18631a8123333d/git-clone_until_success.ps1
+        wget -O git-push_until_success.ps1 https://gist.github.com/thesixonenine/efedd931e7c718c5f15a5ac7efd0299e/git-push_until_success.ps1
+    - name: zip files
+      run: |
+        zip git-scripts.zip git-pull_until_success.ps1 git-clone_until_success.ps1 git-push_until_success.ps1
+    - name: Upload release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          git-scripts.zip
+      
