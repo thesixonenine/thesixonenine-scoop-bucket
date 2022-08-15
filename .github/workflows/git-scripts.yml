@@ -22,22 +22,24 @@ jobs:
         wget -O git-push_until_success.ps1 https://gist.github.com/thesixonenine/efedd931e7c718c5f15a5ac7efd0299e/raw/git-push_until_success.ps1
         wget -O git-master-clear-history.ps1 https://gist.github.com/thesixonenine/91af7680745e8446d750cc354d342da9/raw/git-master-clear-history.ps1
         wget -O git-clean-local-tag.ps1 https://gist.github.com/thesixonenine/fb0785d5ef84170ac2abe4145fda2694/raw/git-clean-local-tag.ps1
+        wget -O bookmarks.ps1 https://gist.github.com/thesixonenine/da0cac9e2b989189ad646afc661d6561/raw/bookmarks.ps1
     - name: zip files
       run: |
-        zip git-scripts.zip git-pull_until_success.ps1 git-clone_until_success.ps1 git-push_until_success.ps1 git-master-clear-history.ps1 git-clean-local-tag.ps1
+        zip git-scripts.zip git-pull_until_success.ps1 git-clone_until_success.ps1 git-push_until_success.ps1 git-master-clear-history.ps1 git-clean-local-tag.ps1 bookmarks.ps1
         sha256sum git-scripts.zip
         rm -rf git-pull_until_success.ps1 
         rm -rf git-clone_until_success.ps1 
         rm -rf git-push_until_success.ps1
         rm -rf git-master-clear-history.ps1
         rm -rf git-clean-local-tag.ps1
+        rm -rf bookmarks.ps1
         git config --global user.name $GIT_NAME
         git config --global user.email $GIT_EMAIL
-        git tag -a v1.0.2 -m "v1.0.2"
-        git push origin v1.0.2
+        git tag -a v1.0.3 -m "v1.0.3"
+        git push origin v1.0.3
     - name: Upload release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v1.0.2
+        tag_name: v1.0.3
         files: |
           git-scripts.zip
