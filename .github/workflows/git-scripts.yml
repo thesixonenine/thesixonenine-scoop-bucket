@@ -33,7 +33,7 @@ jobs:
         rm -rf git-master-clear-history.ps1
         git config --global user.name $GIT_NAME
         git config --global user.email $GIT_EMAIL
-        git tag -a v1.0.0 -m "v1.0.1"
+        git tag -a v1.0.1 -m "v1.0.1"
         git push origin v1.0.1
     - name: Upload release
       uses: softprops/action-gh-release@v1
