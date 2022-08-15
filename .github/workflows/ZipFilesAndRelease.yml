@@ -10,6 +10,10 @@ jobs:
     env:
       TZ: Asia/Shanghai
     steps:
+    - name: Checkout Source
+      uses: actions/checkout@v2
+      with:
+        submodules: true
     - name: download files
       run: |
         wget -O git-pull_until_success.ps1 https://gist.github.com/thesixonenine/410fd98d857b1b1aacc998df3645955f/raw/git-pull_until_success.ps1
