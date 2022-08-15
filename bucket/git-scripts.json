@@ -3,8 +3,8 @@
     "homepage": "https://gist.github.com/thesixonenine/",
     "url": "https://github.com/thesixonenine/thesixonenine-scoop-bucket/releases/download/v1.0.0/git-scripts.zip", 
     "bin": [
-        "bin\\git-pull_until_success.ps1",
-        "bin\\git-clone_until_success.ps1",
-        "bin\\git-push_until_success.ps1"
+        "git-pull_until_success.ps1",
+        "git-clone_until_success.ps1",
+        "git-push_until_success.ps1"
     ]
 }
