@@ -18,9 +18,15 @@ jobs:
     - name: zip files
       run: |
         zip git-scripts.zip git-pull_until_success.ps1 git-clone_until_success.ps1 git-push_until_success.ps1
+        rm -rf git-pull_until_success.ps1 
+        rm -rf git-clone_until_success.ps1 
+        rm -rf git-push_until_success.ps1
+        git tag -a v1.0.0 -m "v1.0.0"
+        git push origin v1.0.0
     - name: Upload release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: v1.0.0
         files: |
           git-scripts.zip
       
