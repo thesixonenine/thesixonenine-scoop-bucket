@@ -1,4 +1,4 @@
-name: git-scripts-release
+name: upload-release
 
 on:
   workflow_dispatch:
