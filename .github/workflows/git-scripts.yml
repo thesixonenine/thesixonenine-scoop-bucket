@@ -31,11 +31,11 @@ jobs:
         rm -rf *.ps1
         git config --global user.name $GIT_NAME
         git config --global user.email $GIT_EMAIL
-        git tag -a v1.0.4 -m "v1.0.4"
-        git push origin v1.0.4
-    # - name: Upload release
-    #   uses: softprops/action-gh-release@v1
-    #   with:
-    #     tag_name: v1.0.3
-    #     files: |
-    #       git-scripts.zip
+        git tag -a v1.0.5 -m "v1.0.5"
+        git push origin v1.0.5
+    - name: Upload release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.5
+        files: |
+          git-scripts.zip
