@@ -1,5 +1,8 @@
 name: git-scripts-release
-
+# 第一步: 新增文件下载 wget 命令(git-scripts.yml)
+# 第二步: 修改标签(git-scripts.yml, git-scripts.json)
+# 第三步: 新增bin命令(git-scripts.json)
+# 第四步: 提交代码, 执行Action
 on:
   workflow_dispatch:
 jobs:
@@ -27,15 +30,19 @@ jobs:
     - name: zip files
       run: |
         zip git-scripts.zip *.ps1
-        sha256sum git-scripts.zip
         rm -rf *.ps1
         git config --global user.name $GIT_NAME
         git config --global user.email $GIT_EMAIL
-        git tag -a v1.0.5 -m "v1.0.5"
-        git push origin v1.0.5
+        aa=$(sha256sum git-scripts.zip | awk '{ print $1 }')
+        sed -i "s/93535bdf2316033a4192c96c8c739d7200b045c2e978a49855567455efc51c6a/${aa}/g" git-scripts.json
+        git add git-scripts.json
+        git commit -am 'git-scripts: Update to version 1.0.6'
+        git push
+        git tag -a v1.0.6 -m "v1.0.6"
+        git push origin v1.0.6
     - name: Upload release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v1.0.5
+        tag_name: v1.0.6
         files: |
           git-scripts.zip

@@ -1,9 +1,9 @@
 {
-    "version": "1.0.5", 
+    "version": "1.0.6", 
     "homepage": "https://gist.github.com/thesixonenine/",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/thesixonenine/thesixonenine-scoop-bucket/releases/download/v1.0.5/git-scripts.zip",
+            "url": "https://github.com/thesixonenine/thesixonenine-scoop-bucket/releases/download/v1.0.6/git-scripts.zip",
             "hash": "93535bdf2316033a4192c96c8c739d7200b045c2e978a49855567455efc51c6a"
         }
     },
