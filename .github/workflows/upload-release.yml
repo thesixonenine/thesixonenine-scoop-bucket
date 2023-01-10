@@ -1,0 +1,19 @@
+name: git-scripts-release
+
+on:
+  workflow_dispatch:
+jobs:
+  zip-archive:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      GIT_NAME: Simple
+      GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+    - name: Upload release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.4
+        files: |
+          git-scripts.zip
