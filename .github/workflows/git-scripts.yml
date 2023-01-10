@@ -33,11 +33,9 @@ jobs:
         rm -rf *.ps1
         git config --global user.name $GIT_NAME
         git config --global user.email $GIT_EMAIL
-        aa=$(sha256sum git-scripts.zip | awk '{ print $1 }')
-        pwd
-        ls
-        sed -i "s/93535bdf2316033a4192c96c8c739d7200b045c2e978a49855567455efc51c6a/${aa}/g" git-scripts.json
-        git add git-scripts.json
+        zipshasum=$(sha256sum git-scripts.zip | awk '{ print $1 }')
+        sed -i "s/93535bdf2316033a4192c96c8c739d7200b045c2e978a49855567455efc51c6a/${zipshasum}/g" ./bucket/git-scripts.json
+        git add ./bucket/git-scripts.json
         git commit -am 'git-scripts: Update to version 1.0.6'
         git push
         git tag -a v1.0.6 -m "v1.0.6"
