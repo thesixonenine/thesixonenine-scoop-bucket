@@ -1,8 +1,8 @@
 name: git-scripts-release
 # 第一步: 新增文件下载 wget 命令(git-scripts.yml)
-# 第二步: 修改标签(git-scripts.yml, git-scripts.json)
-# 第三步: 新增bin命令(git-scripts.json)
-# 第四步: 提交代码, 执行Action
+# 第二步: 修改标签, 全局搜索替换(git-scripts.yml, git-scripts.json)
+# 第三步: 新增 bin 命令(git-scripts.json)
+# 第四步: 提交代码, 执行 Action
 on:
   workflow_dispatch:
 jobs:
