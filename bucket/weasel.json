@@ -1,0 +1,16 @@
+{
+    "homepage": "https://github.com/rime/weasel",
+    "description": "Rime for Windows",
+    "version": "0.15.0",
+    "license": "GPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/rime/weasel/releases/download/0.15.0/weasel-0.15.0.0-installer.exe#/dl.7z",
+            "hash": "21b2b3ba19f11b308db3c50ce343a14a42ce10331e3c0b7021850ec6726dcd10",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\" -Force -Recurse"
+            ]
+        }
+    }
+}
