@@ -1,0 +1,13 @@
+{
+  "name": "thesixonenine/dev/base:trixie",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": { "GITHUB_PAT": "${localEnv:GITHUB_PAT}" }
+  },
+  "customizations": { "vscode": { "settings": {
+        "extensions.allowed": {
+            "microsoft": false,
+            "github": false
+        }
+  }}}
+}
