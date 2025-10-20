@@ -1,8 +1,5 @@
 name: git-scripts-release
-# 第一步: 新增文件下载 wget 命令(git-scripts.yml)
-# 第二步: 修改标签, 全局搜索替换(git-scripts.yml, git-scripts.json)
-# 第三步: 新增 bin 命令(git-scripts.json)
-# 第四步: 提交代码, 执行 Action
+
 on:
   workflow_dispatch:
 jobs:
@@ -13,6 +10,7 @@ jobs:
       GIT_NAME: Simple
       GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      TAG: v1.0.7
     steps:
     - name: Checkout Source
       uses: actions/checkout@v2
@@ -24,6 +22,7 @@ jobs:
         wget -O git-clone_until_success.ps1 https://gist.github.com/thesixonenine/326314e18a3a69116d18631a8123333d/raw/git-clone_until_success.ps1
         wget -O git-push_until_success.ps1 https://gist.github.com/thesixonenine/efedd931e7c718c5f15a5ac7efd0299e/raw/git-push_until_success.ps1
         wget -O git-master-clear-history.ps1 https://gist.github.com/thesixonenine/91af7680745e8446d750cc354d342da9/raw/git-master-clear-history.ps1
+        wget -O git-main-clear-history.ps1 https://gist.github.com/thesixonenine/227d45e15ae86f49f2207004060e3ebc/raw/git-main-clear-history.ps1
         wget -O git-clean-local-tag.ps1 https://gist.github.com/thesixonenine/fb0785d5ef84170ac2abe4145fda2694/raw/git-clean-local-tag.ps1
         wget -O bookmarks.ps1 https://gist.github.com/thesixonenine/da0cac9e2b989189ad646afc661d6561/raw/bookmarks.ps1
         wget -O ssh-copy-id.ps1 https://gist.github.com/thesixonenine/0e751fefe1645cefe4c9aacb51b2b557/raw/ssh-copy-id.ps1
@@ -34,15 +33,15 @@ jobs:
         git config --global user.name $GIT_NAME
         git config --global user.email $GIT_EMAIL
         zipshasum=$(sha256sum git-scripts.zip | awk '{ print $1 }')
-        sed -i "s/93535bdf2316033a4192c96c8c739d7200b045c2e978a49855567455efc51c6a/${zipshasum}/g" ./bucket/git-scripts.json
+        sed -i "s/23c41a3a01f475b55ddcf5c579928822f0590b7e598109099c0ea518c718a2ea/${zipshasum}/g" ./bucket/git-scripts.json
         git add ./bucket/git-scripts.json
-        git commit -am 'git-scripts: Update to version 1.0.6'
+        git commit -am "git-scripts: Update to version $TAG"
         git push
-        git tag -a v1.0.6 -m "v1.0.6"
-        git push origin v1.0.6
+        git tag -a $TAG -m "$TAG"
+        git push origin "$TAG"
     - name: Upload release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v1.0.6
+        tag_name: v1.0.7
         files: |
           git-scripts.zip
