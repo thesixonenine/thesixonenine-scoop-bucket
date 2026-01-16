@@ -3,7 +3,7 @@
   "runArgs": ["--name", "scoop-bucket"],
   "build": {
     "dockerfile": "Dockerfile",
-    "args": { "GITHUB_PAT": "${localEnv:GITHUB_PAT}" }
+    "args": { "MY_PAT": "${localEnv:MY_PAT}" }
   },
   "postStartCommand": "chezmoi update",
   "customizations": { "vscode": { "settings": {
