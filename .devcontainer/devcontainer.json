@@ -3,7 +3,11 @@
   "runArgs": ["--name", "scoop-bucket"],
   "build": {
     "dockerfile": "Dockerfile",
-    "args": { "MY_PAT": "${localEnv:MY_PAT}" }
+    "args": {
+      "TAG": "trixie",
+      "USERNAME": "thesixonenine",
+      "MY_PAT": "${localEnv:MY_PAT}"
+    }
   },
   "postStartCommand": "chezmoi update",
   "customizations": { "vscode": { "settings": {

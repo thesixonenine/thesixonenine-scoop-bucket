@@ -1,8 +1,8 @@
-FROM mcr.microsoft.com/devcontainers/base:trixie
+ARG TAG=trixie
+FROM mcr.microsoft.com/devcontainers/base:${TAG}
 LABEL authors="Simple"
-ARG USERNAME=thesixonenine
 ARG MY_PAT
-ENV MY_PAT=${MY_PAT}
+ARG USERNAME=thesixonenine
 ENV HTTP_PROXY=socks5://host.docker.internal:1080 HTTPS_PROXY=socks5://host.docker.internal:1080
 ENV TZ=Asia/Shanghai DEBIAN_FRONTEND=noninteractive
 
