@@ -1,5 +1,11 @@
 # thesixonenine-scoop-bucket
 
+## Add Bucket
+
+```shell
+scoop bucket add thesixonenine https://github.com/thesixonenine/thesixonenine-scoop-bucket
+```
+
 ## Append *.ps1 Scripts
 
 1. 新增文件下载 wget 命令(git-scripts.yml)
